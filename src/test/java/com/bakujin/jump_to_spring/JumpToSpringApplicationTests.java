@@ -15,14 +15,18 @@ import com.bakujin.jump_to_spring.answer.Answer;
 import com.bakujin.jump_to_spring.answer.AnswerRepository;
 import com.bakujin.jump_to_spring.question.Question;
 import com.bakujin.jump_to_spring.question.QuestionRepository;
+import com.bakujin.jump_to_spring.question.QuestionService;
 
 import jakarta.transaction.Transactional;
 
 @SpringBootTest
-class DemoApplicationTests {
+class JumpToSpringApplicationTests {
 
 	@Autowired
 	private QuestionRepository questionRepository;
+
+	@Autowired
+	private QuestionService questionService;
 
 	@Autowired
 	private AnswerRepository answerRepository;
@@ -130,5 +134,14 @@ class DemoApplicationTests {
 
 		assertEquals(1, answerList.size());
 		assertEquals("네 자동으로 생성됩니다.", answerList.get(0).getContent());
+	}
+
+	@Test
+	void createTestQuestion() {
+		for (int i = 1; i <= 300; i++) {
+			String subject = String.format("테스트 데이터입니다: [%03d]", i);
+			String content = "내용무";
+			this.questionService.create(subject, content);
+		}
 	}
 }
