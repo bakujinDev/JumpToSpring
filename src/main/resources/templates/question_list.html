@@ -11,7 +11,10 @@
 
       <tbody>
         <tr th:each="question, loop : ${paging}">
-          <td>[[${loop.count}]]</td>
+          <td>
+            [[${paging.getTotalElements - (paging.number * paging.size) -
+            loop.index}]]
+          </td>
           <td>
             <a th:href="@{|/question/detail/${question.id}|}">
               [[${question.subject}]]
