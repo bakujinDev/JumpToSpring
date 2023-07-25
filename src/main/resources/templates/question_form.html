@@ -12,7 +12,7 @@
         role="alert"
         th:if="${#fields.hasAnyErrors()}"
       >
-        <div th:each="err : ${#fields.allErrors()}" th:text="${err}" />
+        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
       </div>
 
       <div class="mb-3">
