@@ -1,27 +1,27 @@
-<link rel="stylesheet" th:href="@{/bootstrap.min.css}" />
+<html layout:decorate="~{layout}">
+  <div layout:fragment="content" class="container my-3">
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성일시</th>
+        </tr>
+      </thead>
 
-<div class="container my-3">
-  <table class="table">
-    <thead class="table-dark">
-      <tr>
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성일시</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr th:each="question, loop : ${questionList}">
-        <td>[[${loop.count}]]</td>
-        <td>
-          <a th:href="@{|/question/detail/${question.id}|}">
-            [[${question.subject}]]
-          </a>
-        </td>
-        <td>
-          [[${#temporals.format(question.createDate,'yyyy-MM-dd HH:mm')}]]
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+      <tbody>
+        <tr th:each="question, loop : ${questionList}">
+          <td>[[${loop.count}]]</td>
+          <td>
+            <a th:href="@{|/question/detail/${question.id}|}">
+              [[${question.subject}]]
+            </a>
+          </td>
+          <td>
+            [[${#temporals.format(question.createDate,'yyyy-MM-dd HH:mm')}]]
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</html>
