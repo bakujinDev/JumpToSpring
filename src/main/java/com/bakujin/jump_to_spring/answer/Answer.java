@@ -3,6 +3,7 @@ package com.bakujin.jump_to_spring.answer;
 import java.time.LocalDateTime;
 
 import com.bakujin.jump_to_spring.question.Question;
+import com.bakujin.jump_to_spring.user.SiteUser;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,4 +29,7 @@ public class Answer {
 
   @ManyToOne
   private Question question;
+
+  @ManyToOne
+  private SiteUser author;
 }
