@@ -11,5 +11,4 @@ public class JumpToSpringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(JumpToSpringApplication.class, args);
 	}
-
 }
